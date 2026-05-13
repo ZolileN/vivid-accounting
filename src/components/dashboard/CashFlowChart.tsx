@@ -54,7 +54,7 @@ export function CashFlowChart() {
                   backgroundColor: "hsl(var(--card))",
                   padding: "12px 16px",
                 }}
-                formatter={(value: number | string, name: string) => [
+                formatter={(value: any, name: any) => [
                   `R ${Number(value).toLocaleString("en-ZA")}`,
                   String(name) === "income" ? "Income" : "Expenses",
                 ]}

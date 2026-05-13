@@ -58,6 +58,19 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## 🚀 Deployment
+
+### Deploying to Vercel
+
+1.  **Environment Variables**: Copy `.env.example` to your Vercel project settings and fill in the values.
+2.  **Database**: Ensure your PostgreSQL database (e.g., Supabase) is accessible and migrations are run.
+3.  **Build Command**: Vercel will automatically detect Next.js. The build script `npm run build` is already configured to run `prisma generate`.
+
+To run migrations in production:
+```bash
+npx prisma migrate deploy
+```
+
 ## 📄 License
 
 Internal use only for SignalDesk Africa.
