@@ -9,16 +9,14 @@ interface PaystackButtonProps {
   invoiceId: string;
   amount: number; // in ZAR (e.g. 1500.00)
   email: string;
-  onSuccess?: (reference: string) => void;
 }
 
 /**
  * Paystack "Pay Now" button — initializes a payment session via
  * Paystack Inline JS and handles the redirect flow.
  */
-export function PaystackPayButton({ invoiceId, amount, email, onSuccess }: PaystackButtonProps) {
+export function PaystackPayButton({ invoiceId, amount, email }: PaystackButtonProps) {
   const [loading, setLoading] = useState(false);
-  const [paid, setPaid] = useState(false);
 
   const handlePay = async () => {
     setLoading(true);
@@ -52,17 +50,6 @@ export function PaystackPayButton({ invoiceId, amount, email, onSuccess }: Payst
     }
   };
 
-  if (paid) {
-    return (
-      <Button
-        disabled
-        className="flex-1 sm:flex-none bg-emerald-600 hover:bg-emerald-600 text-white border-none gap-2"
-      >
-        <CheckCircle2 className="h-4 w-4" />
-        Paid
-      </Button>
-    );
-  }
 
   return (
     <Button
